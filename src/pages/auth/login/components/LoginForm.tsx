@@ -2,7 +2,7 @@ import { useState } from "react";
 import Button from "../../../../components/button";
 import InputTypeText from "../../../../components/text-field";
 import TogglePassword from "../../../../components/toggle-password";
-import ButtonLink from "../../../../components/button-link";
+import { NavLink } from "react-router-dom";
 
 const LoginForm = () => {
   const [inputType, setInputType] = useState<string>("password");
@@ -16,7 +16,9 @@ const LoginForm = () => {
       <Button buttonName="Login" />
       <div className="btn-link">
         <p>Don't have an account</p>
-        <ButtonLink buttonName="Register" navigation="/register" />
+        <NavLink className="nav-link" to="/register">
+          Register
+        </NavLink>
       </div>
     </form>
   );
