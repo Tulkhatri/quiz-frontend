@@ -1,0 +1,116 @@
+.dashboard {
+    margin: 1.5rem;
+    width: 100%;
+    box-shadow: 0.01rem 0.01rem 0.2rem rgb(220, 220, 220);
+
+
+    .header-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 1rem;
+
+        box-shadow: 0 0.1rem 0.01rem rgba(49, 49, 49, 0.15);
+
+        .eft-section {
+            .right-section {}
+        }
+    }
+
+    .body-section {
+        padding: 1rem;
+
+        .table-wrapper {
+            .table-wrapper {
+                overflow-x: auto;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                min-width: 400px;
+            }
+
+            thead {
+                background-color: #f5f5f5;
+            }
+
+            th,
+            td {
+                padding: 0.75rem 1rem;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+                border: 1px solid #ddd;
+            }
+
+            th {
+                font-weight: 600;
+                color: #333;
+            }
+
+            td {
+                color: #555;
+            }
+
+            .icon-wrapper {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        .col-sno {
+            width: 80px;
+            text-align: center !important;
+
+        }
+
+        .col-action {
+            width: 50px;
+            text-align: center !important;
+        }
+
+        .col-name {
+            width: 300px;
+        }
+
+    }
+
+    .input-wrapper {
+        display: flex;
+        flex-direction: column;
+        margin: 1rem auto;
+        gap: 1rem;
+
+        input {
+            width: 30%;
+            padding: 0.4rem;
+            border: 0.05rem solid $input-color;
+            border-radius: 5px;
+            font-size: 1rem;
+
+            &:focus {
+                outline: none;
+            }
+
+        }
+
+        button {
+            padding: 0.4rem 0.5rem;
+            background: $btn-primary;
+            color: $white;
+            border: none;
+            border-radius: 0.2rem;
+            font-size: 1rem;
+            cursor: pointer;
+            width: fit-content;
+
+            &:hover {
+                background: $btn-hover;
+            }
+        }
+    }
+
+
+
+}
