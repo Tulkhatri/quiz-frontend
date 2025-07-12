@@ -3,7 +3,7 @@ import type { InputTypeButton } from "../type";
 const Button = ({ buttonName }: InputTypeButton) => {
   return (
     <>
-      <button type="button">{buttonName}</button>
+      <button type="submit">{buttonName}</button>
     </>
   );
 };

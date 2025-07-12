@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Register from "./pages/auth/register";
 import Login from "./pages/auth/login";
 import Dashboard from "./pages/dashboard";
@@ -14,29 +14,82 @@ import QuestionForm from "./pages/question-manage/QuestionForm";
 import Answer from "./pages/answer-manage/Answer";
 import AnswerForm from "./pages/answer-manage/AnswerForm";
 import QuizAttempt from "./pages/quiz-attempt/QuizAttempt";
+import PageNotFound from "./pages/error";
 
 function App() {
-  return (
-    <Routes>
-      <Route path="/register" element={<Register />} />
-      <Route path="/login" element={<Login />} />
+  const router = createBrowserRouter([
+    {
+      path: "register",
+      element: <Register />,
+    },
+    {
+      path: "login",
+      element: <Login />,
+    },
+    {
+      element: <MainLayout />,
+      children: [
+        {
+          index: true, // same as path: ""
+          element: <Dashboard />,
+        },
+        {
+          path: "dashboard", // same as path: ""
+          element: <Dashboard />,
+        },
+        {
+          path: "category",
+          element: <CategoryManage />,
+        },
+        {
+          path: "category/add",
+          element: <CategoryManageForm />,
+        },
+        {
+          path: "level",
+          element: <DifficultyLevel />,
+        },
+        {
+          path: "level/add",
+          element: <DifficultyLevelForm />,
+        },
+        {
+          path: "quiz",
+          element: <Quiz />,
+        },
+        {
+          path: "quiz/add",
+          element: <QuizForm />,
+        },
+        {
+          path: "question",
+          element: <Question />,
+        },
+        {
+          path: "question/add",
+          element: <QuestionForm />,
+        },
+        {
+          path: "answer",
+          element: <Answer />,
+        },
+        {
+          path: "answer/add",
+          element: <AnswerForm />,
+        },
+        {
+          path: "attempt",
+          element: <QuizAttempt />,
+        },
+        {
+          path: "*",
+          element: <PageNotFound />,
+        },
+      ],
+    },
+  ]);
 
-      <Route path="/" element={<MainLayout />}>
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/category" element={<CategoryManage />} />
-        <Route path="/category/add" element={<CategoryManageForm />} />
-        <Route path="/level" element={<DifficultyLevel />} />
-        <Route path="/level/add" element={<DifficultyLevelForm />} />
-        <Route path="/quiz" element={<Quiz />} />
-        <Route path="/quiz/add" element={<QuizForm />} />
-        <Route path="/question" element={<Question />} />
-        <Route path="/question/add" element={<QuestionForm />} />
-        <Route path="/answer" element={<Answer />} />
-        <Route path="/answer/add" element={<AnswerForm />} />
-        <Route path="/attempt" element={<QuizAttempt />} />
-      </Route>
-    </Routes>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
