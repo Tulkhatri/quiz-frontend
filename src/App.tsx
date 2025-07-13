@@ -15,6 +15,8 @@ import Answer from "./pages/answer-manage/Answer";
 import AnswerForm from "./pages/answer-manage/AnswerForm";
 import QuizAttempt from "./pages/quiz-attempt/QuizAttempt";
 import PageNotFound from "./pages/error";
+import { AuthProvider } from "./contexts/AuthContext";
+import PrivateRoute from "./pages/PrivateRoute";
 
 function App() {
   const router = createBrowserRouter([
@@ -26,70 +28,80 @@ function App() {
       path: "login",
       element: <Login />,
     },
+
     {
-      element: <MainLayout />,
+      element: <PrivateRoute />,
       children: [
         {
-          index: true, // same as path: ""
-          element: <Dashboard />,
-        },
-        {
-          path: "dashboard", // same as path: ""
-          element: <Dashboard />,
-        },
-        {
-          path: "category",
-          element: <CategoryManage />,
-        },
-        {
-          path: "category/add",
-          element: <CategoryManageForm />,
-        },
-        {
-          path: "level",
-          element: <DifficultyLevel />,
-        },
-        {
-          path: "level/add",
-          element: <DifficultyLevelForm />,
-        },
-        {
-          path: "quiz",
-          element: <Quiz />,
-        },
-        {
-          path: "quiz/add",
-          element: <QuizForm />,
-        },
-        {
-          path: "question",
-          element: <Question />,
-        },
-        {
-          path: "question/add",
-          element: <QuestionForm />,
-        },
-        {
-          path: "answer",
-          element: <Answer />,
-        },
-        {
-          path: "answer/add",
-          element: <AnswerForm />,
-        },
-        {
-          path: "attempt",
-          element: <QuizAttempt />,
-        },
-        {
-          path: "*",
-          element: <PageNotFound />,
+          element: <MainLayout />,
+          children: [
+            {
+              index: true, // same as path: ""
+              element: <Dashboard />,
+            },
+            {
+              path: "dashboard", // same as path: ""
+              element: <Dashboard />,
+            },
+            {
+              path: "category",
+              element: <CategoryManage />,
+            },
+            {
+              path: "category/add",
+              element: <CategoryManageForm />,
+            },
+            {
+              path: "level",
+              element: <DifficultyLevel />,
+            },
+            {
+              path: "level/add",
+              element: <DifficultyLevelForm />,
+            },
+            {
+              path: "quiz",
+              element: <Quiz />,
+            },
+            {
+              path: "quiz/add",
+              element: <QuizForm />,
+            },
+            {
+              path: "question",
+              element: <Question />,
+            },
+            {
+              path: "question/add",
+              element: <QuestionForm />,
+            },
+            {
+              path: "answer",
+              element: <Answer />,
+            },
+            {
+              path: "answer/add",
+              element: <AnswerForm />,
+            },
+            {
+              path: "attempt",
+              element: <QuizAttempt />,
+            },
+            {
+              path: "*",
+              element: <PageNotFound />,
+            },
+          ],
         },
       ],
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  return (
+    <AuthProvider>
+      <RouterProvider router={router} />;
+    </AuthProvider>
+  );
 }
 
 export default App;

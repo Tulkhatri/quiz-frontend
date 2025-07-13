@@ -1,5 +1,6 @@
 export interface InputTypeButton {
   buttonName: string;
+  loading: boolean;
 }
 
 export interface InputTyPeText {

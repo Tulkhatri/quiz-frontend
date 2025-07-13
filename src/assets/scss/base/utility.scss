@@ -42,10 +42,17 @@
 }
 
 .error {
-    margin-top: -0.7rem;
+    // margin-top: -0.7rem;
     color: $danger;
+    text-align: left !important;
 }
 
 .w-100 {
     width: 100%;
+}
+
+button:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
 }
