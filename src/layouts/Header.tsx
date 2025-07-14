@@ -4,9 +4,9 @@ const Header = () => {
   return (
     <div className="header">
       <div className="header-wrapper">
-        <h2>Quiz </h2>
+        <h3>Quiz System</h3>
         <div className="profile-wrapper">
-          <h4>Tul Khatri</h4>
+          <h5>Tul Bahadur Khatri</h5>
           <div className="icon-wrapper">
             <div className="icon">
               <svg

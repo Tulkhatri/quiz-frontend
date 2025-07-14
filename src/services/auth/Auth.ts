@@ -1,21 +1,6 @@
 import type { AxiosError } from "axios";
 import http from "../http";
-
-interface UserRegister {
-  name: string;
-  email: string;
-  password: string | number;
-}
-
-interface UserType {
-  email: string;
-  password: string | number;
-}
-
-interface LoginErrorResponse {
-  message: string;
-  status: number;
-}
+import type { LoginErrorResponse, UserRegister, UserType } from "../../type";
 
 export const userRegister = async (body: UserRegister) => {
   try {

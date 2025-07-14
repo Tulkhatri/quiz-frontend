@@ -48,7 +48,7 @@ function App() {
               element: <CategoryManage />,
             },
             {
-              path: "category/add",
+              path: "category/:id",
               element: <CategoryManageForm />,
             },
             {
@@ -56,7 +56,7 @@ function App() {
               element: <DifficultyLevel />,
             },
             {
-              path: "level/add",
+              path: "level/:id",
               element: <DifficultyLevelForm />,
             },
             {
@@ -64,7 +64,7 @@ function App() {
               element: <Quiz />,
             },
             {
-              path: "quiz/add",
+              path: "quiz/:id",
               element: <QuizForm />,
             },
             {
@@ -72,7 +72,7 @@ function App() {
               element: <Question />,
             },
             {
-              path: "question/add",
+              path: "question/:id",
               element: <QuestionForm />,
             },
             {
@@ -80,7 +80,7 @@ function App() {
               element: <Answer />,
             },
             {
-              path: "answer/add",
+              path: "answer/:id",
               element: <AnswerForm />,
             },
             {
@@ -99,7 +99,7 @@ function App() {
 
   return (
     <AuthProvider>
-      <RouterProvider router={router} />;
+      <RouterProvider router={router} />
     </AuthProvider>
   );
 }

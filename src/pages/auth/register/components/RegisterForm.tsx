@@ -38,7 +38,7 @@ const RegisterForm = () => {
         toast.error(data.message);
       }
     } finally {
-      setLoading(false); // always reset loading
+      setLoading(false); 
     }
   };
 
