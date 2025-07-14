@@ -16,7 +16,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="sidebar">
+    <div className="sidebar no-wrapp">
       <ul>
         {menu.map((menuitem) => {
           return (

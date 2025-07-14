@@ -51,7 +51,7 @@ const CategoryManageForm = () => {
     <div className="dashboard">
       <div className="header-section">
         <div className="left-section">
-          <h3>Add Category</h3>
+          <h3>{item?.id ? "Update" : "Add"} Category</h3>
         </div>
         <div className="right-section">
           <NavLink className="nav-link" to="/category">

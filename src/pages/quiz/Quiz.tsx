@@ -6,19 +6,20 @@ import TableLoading from "../../components/TableLoading";
 import NoData from "../../components/NoData";
 import ConfirmDelete from "./ConfirmDelete";
 
-const Quiz = () => {
-
 interface TableData {
   title: string;
+  category_name: string;
+  difficulty_level_name: string;
   category_id: string;
   difficulty_level_id: string;
   time_limit_minutes: number;
-  id: number;
+  id?: number;
 }
 
-const [dataList, setDataList] = useState<TableData[]>([]);
+const Quiz = () => {
+  const [dataList, setDataList] = useState<TableData[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
-  const [fetchData, setFetchData] = useState<string>('');
+  const [fetchData, setFetchData] = useState<string>("");
   const navigate = useNavigate();
   const getLilst = async () => {
     setLoading(true);
@@ -55,7 +56,6 @@ const [dataList, setDataList] = useState<TableData[]>([]);
     getLilst();
   }, [fetchData]);
 
-
   return (
     <div className="dashboard">
       <div className="header-section">
@@ -89,8 +89,8 @@ const [dataList, setDataList] = useState<TableData[]>([]);
                   <tr key={item.title}>
                     <td className="text-ceter">{index + 1}</td>
                     <td>{item.title}</td>
-                    <td>{item.category_id}</td>
-                    <td>{item.difficulty_level_id}</td>
+                    <td>{item.category_name}</td>
+                    <td>{item.difficulty_level_name}</td>
                     <td>{item.time_limit_minutes}</td>
                     <td className="text-ceter">
                       <div className="icon-wrapper">
@@ -108,7 +108,7 @@ const [dataList, setDataList] = useState<TableData[]>([]);
 
                         <svg
                           onClick={() => {
-                            handleShow(item.id, item.title);
+                            handleShow(item.id!, item.title);
                           }}
                           className="cursor-pointer"
                           xmlns="http://www.w3.org/2000/svg"
