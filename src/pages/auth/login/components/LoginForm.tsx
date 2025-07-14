@@ -7,11 +7,7 @@ import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import { loginUser } from "../../../../services/auth/Auth";
 import { useAuth } from "../../../../contexts/AuthContext";
-
-interface InputForm {
-  email: string;
-  password: string;
-}
+import type { UserType } from "../../../../type";
 
 const LoginForm = () => {
   const [inputType, setInputType] = useState<string>("password");
@@ -22,9 +18,9 @@ const LoginForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<InputForm>();
+  } = useForm<UserType>();
 
-  const onSubmit = async (formData: InputForm) => {
+  const onSubmit = async (formData: UserType) => {
     setLoading(true);
 
     try {

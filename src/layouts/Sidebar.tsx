@@ -30,7 +30,7 @@ const Sidebar = () => {
                 <p>{menuitem.title}</p>
               </NavLink>
             </li>
-          );
+          )
         })}
       </ul>
     </div>
