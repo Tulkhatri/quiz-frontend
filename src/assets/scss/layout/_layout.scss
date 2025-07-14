@@ -4,6 +4,7 @@
     top: 0;
     left: 0;
     padding: 1rem;
+    z-index: 11;
 
     .header-wrapper {
         display: flex;
@@ -72,10 +73,10 @@
     .sidebar {
         position: sticky;
         left: 0;
-        top: 3rem;
+        top: 4.6rem;
         background: $light-green;
         width: 20%;
-        height: calc(100vh - 4.2rem);
+        height: calc(100vh - 4.6rem);
 
         ul {
             list-style: none;

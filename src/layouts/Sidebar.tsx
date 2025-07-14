@@ -20,7 +20,7 @@ const Sidebar = () => {
       <ul>
         {menu.map((menuitem) => {
           return (
-            <li>
+            <li key={menuitem.title}>
               <NavLink
                 className={({ isActive }) =>
                   ` ${isActive ? "bg-active" : "bg-menu"}`
@@ -30,7 +30,7 @@ const Sidebar = () => {
                 <p>{menuitem.title}</p>
               </NavLink>
             </li>
-          );
+          )
         })}
       </ul>
     </div>
