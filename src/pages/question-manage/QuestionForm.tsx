@@ -27,7 +27,6 @@ const QuestionForm = () => {
      setLoading(true);
      try {
        const { data } = await getquiz();
-       console.log("hello",data);
        if (data?.status === 200) {
          setQuiz(data.response);
        } else {

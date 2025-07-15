@@ -3,6 +3,7 @@ import http from "../http";
 import type { TypeName } from "../../pages/type";
 import type { LoginErrorResponse } from "../../type";
 import type { QuestionType } from "../../pages/question-manage/type";
+import type { AnswerType } from "../../pages/answer-manage/type";
 
   interface QuizType {
   title: string;
@@ -285,6 +286,74 @@ export const getQuestion = async () => {
 export const deleteQuestion = async (id: number | undefined) => {
   try {
     const { data } = await http.delete(`api/admin/questions/${id}`);
+    if (data) {
+      return {
+        data: data,
+        error: null,
+      };
+    } else {
+      return {
+        data: null,
+        error: data,
+      };
+    }
+  } catch (err) {
+    console.log(err);
+    return {
+      data: null,
+      error: { err: "Error" },
+    };
+  }
+};
+
+
+export const answerSave = async (body: AnswerType) => {
+  try {
+    const response = await http.post("api/admin/answers", body);
+    if (response.status == 200) {
+      return {
+        data: response.data,
+        error: null,
+      };
+    } else {
+      return {
+        data: null,
+        error: true,
+      };
+    }
+  } catch (error) {
+    const err = error as AxiosError<LoginErrorResponse>;
+    return {
+      data: err.response?.data ?? "Something went wrong",
+    };
+  }
+};
+
+export const getAnswer = async () => {
+  try {
+    const response = await http.get("api/admin/answers");
+    if (response.status == 200) {
+      return {
+        data: response.data,
+        error: null,
+      };
+    } else {
+      return {
+        data: null,
+        error: true,
+      };
+    }
+  } catch (error) {
+    const err = error as AxiosError<LoginErrorResponse>;
+    return {
+      data: err.response?.data ?? "Something went wrong",
+    };
+  }
+};
+
+export const deleteAnswer = async (id: number | undefined) => {
+  try {
+    const { data } = await http.delete(`api/admin/answers/${id}`);
     if (data) {
       return {
         data: data,

@@ -26,8 +26,8 @@ const QuizAttempt = () => {
               <tr>
                 <td className="text-ceter">1</td>
                 <td>Ram Khatri</td>
-                <td>Quiz</td>
-                <td>Score</td>
+                <td>Quiz Test 1</td>
+                <td>4</td>
                 <td>5</td>
                 <td>8:00</td>
                 <td>9:00</td>
