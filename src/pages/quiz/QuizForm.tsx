@@ -6,6 +6,7 @@ import type { TypeName } from "../type";
 import { getCategory, getLevel, quizSave } from "../../services/pages";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
+import Progressing from "../../components/Progressing";
 
 interface FormData {
   title: string;
@@ -86,18 +87,10 @@ const QuizForm = () => {
 
   useEffect(() => {
     if (item) {
+      setValue("category_id", item.category_id);
+      setValue("difficulty_level_id", item.difficulty_level_id);
       setValue("title", item.title);
       setValue("time_limit_minutes", item.time_limit_minutes);
-      const matchedCategory = category.find((c) => c.name === item.category_id);
-      if (matchedCategory) {
-        setValue("category_id", matchedCategory.id);
-      }
-      const matchedLevel = difficultyLevel.find(
-        (l) => l.name === item.difficulty_level_id
-      );
-      if (matchedLevel) {
-        setValue("difficulty_level_id", matchedLevel.id);
-      }
     }
   }, [item, category, difficultyLevel, setValue]);
 
@@ -105,7 +98,7 @@ const QuizForm = () => {
     <div className="dashboard">
       <div className="header-section">
         <div className="left-section">
-          <h3>Add Quiz</h3>
+          <h3>{item?.id ? "Update" : "Add"} Quiz</h3>
         </div>
         <div className="right-section">
           <NavLink className="nav-link" to="/quiz">
@@ -114,7 +107,8 @@ const QuizForm = () => {
         </div>
       </div>
       <div className="body-section">
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} className="loader_relative">
+           <Progressing loading={loading} />
           <div className="input-wrapper">
             <label>
               Quiz Title <span className="required">*</span>

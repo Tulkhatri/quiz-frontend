@@ -51,7 +51,7 @@ const DifficultyLevelForm = () => {
     <div className="dashboard">
       <div className="header-section">
         <div className="left-section">
-          <h3>Add Difficulty Level</h3>
+          <h3>{item?.id ? "Update" : "Add"} Difficulty Level</h3>
         </div>
         <div className="right-section">
           <NavLink className="nav-link" to="/level">
@@ -64,7 +64,7 @@ const DifficultyLevelForm = () => {
           <div className="input-wrapper loader_relative">
             <Progressing loading={loading} />
             <label>
-              Difficulty Level Title <span className="required">*</span>
+              Difficulty Level <span className="required">*</span>
             </label>
             <div className="input-error-wrapper">
               <InputTypeText
